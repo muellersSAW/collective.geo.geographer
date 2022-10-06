@@ -1,4 +1,4 @@
-from zope.interface import implements
+from zope.interface import implementer
 from zope.component import adapts
 from zope.event import notify
 from zope.annotation.interfaces import IAnnotations
@@ -14,6 +14,7 @@ logger = logging.getLogger('collective.geo.geographer')
 KEY = 'collective.geo.geographer.georeference'
 
 
+@implementer(IWriteGeoreferenced)
 class GeoreferencingAnnotator(object):
     """Geographically annotate objects with metadata modelled after GeoJSON.
     See: http://geojson.org
@@ -21,7 +22,6 @@ class GeoreferencingAnnotator(object):
     It implements
     :class:`collective.geo.geographer.interfaces.IWriteGeoreferenced`
     """
-    implements(IWriteGeoreferenced)
     adapts(IGeoreferenceable)
 
     def __init__(self, context):

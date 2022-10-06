@@ -1,4 +1,4 @@
-from zope.interface import implements
+from zope.interface import implementer
 from zope.component.interfaces import IObjectEvent
 
 import logging
@@ -10,8 +10,8 @@ class IObjectGeoreferencedEvent(IObjectEvent):
     """
 
 
+@implementer(IObjectGeoreferencedEvent)
 class ObjectGeoreferencedEvent(object):
-    implements(IObjectGeoreferencedEvent)
 
     def __init__(self, ob):
         self.object = ob

@@ -1,6 +1,7 @@
 from collective.geo.geographer.testing import CGEO_GEOGRAPHER_INTEGRATION
 from operator import itemgetter
 from unittest import TestCase
+from six.moves import map
 
 
 class TestViewPermissionRegression(TestCase):
@@ -21,7 +22,7 @@ class TestViewPermissionRegression(TestCase):
         # ('Modify portal content', (), ('Editor'))
         permission_tuples = app.ac_inherited_permissions(1)
 
-        permission_names = map(itemgetter(0), permission_tuples)
+        permission_names = list(map(itemgetter(0), permission_tuples))
 
         self.assertNotIn(
             'view-permission', permission_names,

@@ -49,12 +49,12 @@ and the latter can be easily configured via ZCML.
 Let's test with an example placemark, which provides both of the marker
 interfaces mentioned above::
 
-    >>> from zope.interface import implements
+    >>> from zope.interface import implementer
     >>> from zope.annotation.interfaces import IAttributeAnnotatable
     >>> from collective.geo.geographer.interfaces import IGeoreferenceable
 
+    ... @implementer(IGeoreferenceable, IAttributeAnnotatable)
     >>> class Placemark(object):
-    ...     implements(IGeoreferenceable, IAttributeAnnotatable)
 
     >>> placemark = Placemark()
 
