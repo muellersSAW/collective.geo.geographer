@@ -1,5 +1,5 @@
 from zope.interface import implementer
-from zope.component.interfaces import IObjectEvent
+from zope.interface.interfaces import IObjectEvent
 
 import logging
 logger = logging.getLogger('collective.geo.geographer')
