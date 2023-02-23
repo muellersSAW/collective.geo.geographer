@@ -1,5 +1,4 @@
 from zope import interface
-from zope.component.interfaces import ComponentLookupError
 from plone.indexer.decorator import indexer
 
 from .interfaces import IGeoreferenceable
